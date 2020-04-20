@@ -1,0 +1,57 @@
+<!-- This snippet explains how to integrate an Instagram feed into Webflow. -->
+
+<!-- Add container inside Webflow Designer.-->
+<div class="instagram-feed"></div>
+
+<!-- Add styles inside <head> tag -->
+<style>
+    .instagram_gallery a:hover {
+        border-bottom: none;
+    text-decoration: none;
+    }
+    .instagram_gallery img {
+        margin-right: 2%;
+    margin-bottom: 2%;
+        width: 23%;
+    }
+    /* Add a lil style and push first and third down */
+    .instagram_gallery a:nth-child(1) img, .instagram_gallery a:nth-child(3) img {
+        margin-top: 78px;
+    }
+    /* Correct margins for pushed images */
+    .instagram_gallery a:nth-child(6) img, .instagram_gallery a:nth-child(8) img {
+        margin-top: -78px;
+    }
+
+    /* Mobile Versions */
+    @media screen and (max-width: 767px) {
+        .instagram_gallery img {
+        width: 48%;
+        margin-right: 1%;
+        }
+    }
+</style>
+
+<!-- Add JavaScript before </body> tag. Inside the 'username' field, include correct Instagram account handle -->
+<script type="text/javascript" src="https://cdn.jsdelivr.net/gh/geoffhensley/jquery.instagramFeed/jquery.instagramFeed.js"></script>
+<script type="text/javascript">
+    (function($){
+        $(window).on('load', function(){
+            $.instagramFeed({
+                'username': '',
+                'container': "#instagram-feed",
+                'display_profile': false,
+                'display_biography': false,
+                'display_gallery': true,
+                'callback': null,
+                'styling': false,
+                'items': 8,
+                'items_per_row': 4,
+                'margin': 1
+            });
+        });
+    })(jQuery);
+</script>
+
+
+<!-- That's it! If it doesn't work, check the console to see what's broken. -->
