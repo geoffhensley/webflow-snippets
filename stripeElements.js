@@ -1,7 +1,5 @@
 'use strict';
 
-var stripe = Stripe('pk_test_6pRNASCoBOKtIshFeQd4XMUh');
-
 function registerElements(elements, exampleName) {
   var formClass = '.' + exampleName;
   var example = document.querySelector(formClass);
